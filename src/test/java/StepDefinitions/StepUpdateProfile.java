@@ -15,8 +15,8 @@ import io.cucumber.java.en.Then;
 public class StepUpdateProfile {
     WebDriver driver;
 
-    @Then("user login")
-    public void user_login(){
+    @Then("user login with email as {string} and password as {string}")
+    public void user_login(String email, String password){
         System.out.println("Inside Step - successfully login into phptravel");
         driver = Driver.getDriver();
 
@@ -24,7 +24,7 @@ public class StepUpdateProfile {
         homePage.selectLogin();
         
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.login();
+        loginPage.login(email, password);
     }
 
     @And("user go to profile page")

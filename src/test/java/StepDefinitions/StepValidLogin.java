@@ -33,13 +33,13 @@ public class StepValidLogin {
         // btn_loginPage.click();
     }
     
-    @When("user enters email and password with the correct credentials then click login button")
-    public void user_enters_blank_email_and_password_then_click_login_button(){
+    @When("user enters email as {string} and password as {string} with the correct credentials then click login button")
+    public void user_enters_blank_email_and_password_then_click_login_button(String email, String password){
         System.out.println("Inside Step - user attempt to login with correct credentials");
         
         
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.login();
+        loginPage.login(email, password);
     }
 
     @Then("user login successfully")

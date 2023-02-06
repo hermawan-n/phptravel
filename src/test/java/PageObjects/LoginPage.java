@@ -16,9 +16,9 @@ public class LoginPage {
     By txt_password = By.name("password");
     By btn_login = RelativeLocator.with(By.tagName("button")).below(txt_password);
     
-    public void login(){
-        driver.findElement(txt_email).sendKeys("bbb@gmail.com");
-        driver.findElement(txt_password).sendKeys("123" + Keys.ENTER);
+    public void login(String email, String password){
+        driver.findElement(txt_email).sendKeys(email);
+        driver.findElement(txt_password).sendKeys(password + Keys.ENTER);
 
         // driver.findElement(btn_login).click();
     }
