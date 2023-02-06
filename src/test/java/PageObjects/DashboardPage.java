@@ -11,6 +11,6 @@ public class DashboardPage {
     }
 
     public void goTo_ProfilePage(){
-        driver.findElement(By.linkText("My Profile")).click();
+        driver.findElement(By.partialLinkText("Profile")).click();
     }
 }

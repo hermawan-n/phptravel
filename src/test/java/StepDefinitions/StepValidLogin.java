@@ -5,33 +5,18 @@ import org.openqa.selenium.WebDriver;
 import Driver.Driver;
 import PageObjects.HomePage;
 import PageObjects.LoginPage;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.messages.types.Duration;
 
 public class StepValidLogin {
     WebDriver driver = null;
-    LoginPage loginPage;
-    HomePage homePage;
-
-    @Before
-    public void browserSetup(){
-        System.out.println("Inside Step - browser is open");
-        driver = Driver.getDriver();
-    }
-
-    @After
-    public void teardown() {
-        driver.close();
-        driver.quit();
-    }
 
     @Given("user is on php travel page")
     public void user_is_in_php_travel_page(){
         System.out.println("Inside Step - user is on php travel page");
-
+        driver = Driver.getDriver();
         driver.navigate().to("https://phptravels.net");
     }
 
@@ -51,6 +36,7 @@ public class StepValidLogin {
     @When("user enters email and password with the correct credentials then click login button")
     public void user_enters_blank_email_and_password_then_click_login_button(){
         System.out.println("Inside Step - user attempt to login with correct credentials");
+        
         
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login();

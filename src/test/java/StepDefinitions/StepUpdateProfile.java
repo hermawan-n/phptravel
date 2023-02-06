@@ -22,8 +22,6 @@ public class StepUpdateProfile {
 
         HomePage homePage = new HomePage(driver);
         homePage.selectLogin();
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login();
@@ -32,6 +30,7 @@ public class StepUpdateProfile {
     @And("user go to profile page")
     public void user_go_to_profile_page(){
         System.out.println("Inside Step - user redirect to profile page");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         DashboardPage dashboardPage = new DashboardPage(driver);
         dashboardPage.goTo_ProfilePage();
