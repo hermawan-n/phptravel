@@ -8,7 +8,6 @@ import PageObjects.LoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.messages.types.Duration;
 
 public class StepValidLogin {
     WebDriver driver = null;

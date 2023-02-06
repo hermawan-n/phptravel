@@ -38,6 +38,6 @@ public class Hooks {
         }
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        Driver.getDriver().quit();
+        driver.quit();
      }
 }
