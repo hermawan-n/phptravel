@@ -17,9 +17,9 @@ import io.cucumber.java.Scenario;
 
 public class Hooks {
     WebDriver driver;
-    
+
     @Before
-    public void browserSetup(){
+    public void browserSetup() {
         System.out.println("Inside Step - browser is open");
         driver = Driver.getDriver();
     }
@@ -38,6 +38,6 @@ public class Hooks {
         }
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.quit();
-     }
+        // driver.quit();
+    }
 }

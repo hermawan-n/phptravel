@@ -6,7 +6,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resource/features/UpdateProfile.feature",
+@CucumberOptions(features = "src/test/resource/features",
     glue = {"StepDefinitions"},
     tags = "@run",
     monochrome = false,
