@@ -1,15 +1,10 @@
 package PageObjects;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.locators.RelativeLocator;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HotelPage {
     WebDriver driver;
@@ -31,24 +26,14 @@ public class HotelPage {
     By cb_tns = By.id("agreechb");
     By btn_confirmBooking = By.id("booking");
 
-    // WebElement dopdownTitle1;
-    // WebElement dopdownTitle2;
-    // WebElement dopdownAge1;
-    // WebElement dopdownAge2;
-    // WebElement dropdownCountry;
-    // WebElement dropdownNationality;
-
     public HotelPage(WebDriver driver) {
         this.driver = driver;
     }
 
     // fill personal information
     public void chooseHotel(String hotel) {
-        // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element = driver.findElement(By.xpath("//strong[text()='Rendezvous Hotels']/../../../.."));
         element.click();
-        // By img = RelativeLocator.with(By.tagName("a")).below(element);
-        // driver.findElement(img).click();
     }
 
     public void chooseRoom(String room) {
@@ -192,14 +177,9 @@ public class HotelPage {
         paymentMethod = paymentMethod.toLowerCase();
         paymentMethod = paymentMethod.replace(" ", "-");
 
-        // Select dropdown = new Select(
-        // driver.findElement(By.id("myTab")));
-        // dropdown.selectByVisibleText(paymentMethod);
-
         WebElement radioPayment = driver
                 .findElement(By.xpath("//input[@type='radio'][@value='" + paymentMethod +
                         "']"));
-        // radioPayment.click();
         ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", radioPayment);
     }
 
@@ -209,12 +189,6 @@ public class HotelPage {
     }
 
     public void click_confirmBooking() {
-        // WebDriverWait wait = new WebDriverWait(driver, 10);
-        // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        // WebElement element =
-        // wait.until(ExpectedConditions.elementToBeClickable(btn_confirmBooking));
-        // element.submit();
         driver.findElement(btn_confirmBooking).submit();
     }
 }

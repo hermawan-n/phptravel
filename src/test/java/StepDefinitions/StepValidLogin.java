@@ -25,12 +25,6 @@ public class StepValidLogin {
 
         HomePage homePage = new HomePage(driver);
         homePage.selectLogin();
-        // WebElement btn_account = driver.findElement(By.id("ACCOUNT"));
-        // WebElement btn_loginPage = driver.findElement(By.xpath("//*[text()='Customer
-        // Login']"));
-
-        // btn_account.click();
-        // btn_loginPage.click();
     }
 
     @When("user enters email as {string} and password as {string} with the correct credentials then click login button")
