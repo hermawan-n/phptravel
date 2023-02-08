@@ -27,11 +27,11 @@ public class StepBookingHotel {
         hotelPage.chooseHotel(string);
     }
 
-    @Then("user choose a room to book")
-    public void user_choose_a_room_to_book() {
+    @Then("user choose a {string} to book")
+    public void user_choose_a_room_to_book(String string) {
         System.out.println("Inside Step - user choose room book");
 
-        hotelPage.chooseRoom();
+        hotelPage.chooseRoom(string);
     }
 
     @Then("user fill personal information for booking")

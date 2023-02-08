@@ -22,11 +22,13 @@ public class Hooks {
     public void browserSetup() {
         System.out.println("Inside Step - browser is open");
         driver = Driver.getDriver();
+        driver.manage().window().maximize();
     }
 
     @After
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             String screenshotFile = scenario.getName() + ".png";
             TakesScreenshot screenshotTaker = (TakesScreenshot) Driver.getDriver();
             File screenshot = screenshotTaker.getScreenshotAs(OutputType.FILE);
@@ -37,7 +39,6 @@ public class Hooks {
             }
         }
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         // driver.quit();
     }
 }

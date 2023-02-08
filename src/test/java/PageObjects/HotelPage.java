@@ -31,12 +31,12 @@ public class HotelPage {
     By cb_tns = By.id("agreechb");
     By btn_confirmBooking = By.id("booking");
 
-    WebElement dopdownTitle1;
-    WebElement dopdownTitle2;
-    WebElement dopdownAge1;
-    WebElement dopdownAge2;
-    WebElement dropdownCountry;
-    WebElement dropdownNationality;
+    // WebElement dopdownTitle1;
+    // WebElement dopdownTitle2;
+    // WebElement dopdownAge1;
+    // WebElement dopdownAge2;
+    // WebElement dropdownCountry;
+    // WebElement dropdownNationality;
 
     public HotelPage(WebDriver driver) {
         this.driver = driver;
@@ -51,9 +51,10 @@ public class HotelPage {
         // driver.findElement(img).click();
     }
 
-    public void chooseRoom() {
+    public void chooseRoom(String room) {
         btn_chooseRoom = driver.findElement(
-                By.xpath("//*[@id='availability']/div[2]/div[2]/div[2]/div/div[2]/form/div/div[4]/div/div/button"));
+                By.xpath("//strong[text()='" + room
+                        + "']/../../div[@class='card-body']/div/div[2]/form/div/div[4]/div/div/button"));
         btn_chooseRoom.submit();
     }
 
@@ -83,14 +84,14 @@ public class HotelPage {
     }
 
     public void selectCountry(String countryCode) {
-        dropdownCountry = driver.findElement(By.name("country_code"));
+        WebElement dropdownCountry = driver.findElement(By.name("country_code"));
         Select selectCountry = new Select(dropdownCountry);
 
         selectCountry.selectByVisibleText(countryCode);
     }
 
     public void selectNationality(String nationality) {
-        dropdownNationality = driver.findElement(By.name("country_code"));
+        WebElement dropdownNationality = driver.findElement(By.name("country_code"));
         Select selectCountry = new Select(dropdownNationality);
 
         selectCountry.selectByVisibleText(nationality);
@@ -198,14 +199,22 @@ public class HotelPage {
         WebElement radioPayment = driver
                 .findElement(By.xpath("//input[@type='radio'][@value='" + paymentMethod +
                         "']"));
-        radioPayment.click();
+        // radioPayment.click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", radioPayment);
     }
 
     public void agreeTnS() {
-        driver.findElement(cb_tns).click();
+        WebElement comboBox = driver.findElement(cb_tns);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", comboBox);
     }
 
     public void click_confirmBooking() {
-        driver.findElement(btn_confirmBooking).click();
+        // WebDriverWait wait = new WebDriverWait(driver, 10);
+        // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // WebElement element =
+        // wait.until(ExpectedConditions.elementToBeClickable(btn_confirmBooking));
+        // element.submit();
+        driver.findElement(btn_confirmBooking).submit();
     }
 }

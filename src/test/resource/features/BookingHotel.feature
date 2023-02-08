@@ -4,7 +4,7 @@ Feature: feature to test booking hotel funcionality
         Given user is on php travel page
         Then user go to hotel page
         And user clicks on "Rendezvous Hotels"
-        Then user choose a room to book
+        Then user choose a "Triple Rooms" to book
         Then user fill personal information for booking
         And fill travel information
         Then user choose payment method as "Razorpay"
