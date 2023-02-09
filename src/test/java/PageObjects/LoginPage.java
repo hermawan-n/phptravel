@@ -5,12 +5,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.locators.RelativeLocator;
 
-public class LoginPage {
-    WebDriver driver;
+import Driver.Driver;
 
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-    }
+public class LoginPage {
+    WebDriver driver = Driver.getDriver();
 
     By txt_email = By.name("email");
     By txt_password = By.name("password");

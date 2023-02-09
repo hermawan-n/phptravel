@@ -6,8 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.locators.RelativeLocator;
 import org.openqa.selenium.support.ui.Select;
 
+import Driver.Driver;
+
 public class ProfilePage {
-    WebDriver driver;
+    WebDriver driver = Driver.getDriver();
 
     By txt_firstName = By.name("firstname");
     By txt_lastName = By.name("lastname");
@@ -22,10 +24,6 @@ public class ProfilePage {
     By txt_address1 = By.name("address1");
     By txt_address2 = By.name("address2");
     By btn_update = RelativeLocator.with(By.tagName("button")).below(txt_address2);
-
-    public ProfilePage(WebDriver driver){
-        this.driver = driver;
-    }
 
     public void enter_firstName(String firstName){
         driver.findElement(txt_firstName).clear();

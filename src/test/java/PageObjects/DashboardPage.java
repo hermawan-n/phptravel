@@ -3,14 +3,12 @@ package PageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import Driver.Driver;
+
 public class DashboardPage {
-    WebDriver driver;
+    WebDriver driver = Driver.getDriver();
 
-    public DashboardPage(WebDriver driver){
-        this.driver = driver;
-    }
-
-    public void goTo_ProfilePage(){
+    public void goTo_ProfilePage() {
         driver.findElement(By.partialLinkText("Profile")).click();
     }
 }
