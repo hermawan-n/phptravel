@@ -27,10 +27,8 @@ public class BookingPage {
 
     public void selectDropdownPersonalInformationxpath(String dropdownName, String option) {
         dropdownName = dropdownName.toLowerCase();
-        WebElement dropdown = driver
-                .findElement(By.xpath(
-                        "//select[@class='form-select select_ " + dropdownName + " select2-hidden-accessible']"));
-        Select select = new Select(dropdown);
+        Select select = util.findSelectWithXpath(
+                "//select[@class='form-select select_ " + dropdownName + " select2-hidden-accessible']");
 
         select.selectByVisibleText(option);
     }
@@ -45,11 +43,9 @@ public class BookingPage {
         if (dropdownName.equals("Month")) {
             dropdownName = "Date of Birth";
         }
-        WebElement dropdown = driver
-                .findElement(By.xpath("//div[@class='card-header'][normalize-space(.)='" + traveller
-                        + "']/../div/div/div/div/div/label[text()='Date of Birth']/../../div/label[text()='"
-                        + dropdownName + "']/../select"));
-        Select select = new Select(dropdown);
+        Select select = util.findSelectWithXpath("//div[@class='card-header'][normalize-space(.)='" + traveller
+                + "']/../div/div/div/div/div/label[text()='Date of Birth']/../../div/label[text()='"
+                + dropdownName + "']/../select");
 
         select.selectByVisibleText(option);
     }
@@ -58,11 +54,9 @@ public class BookingPage {
         if (dropdownName.equals("Month")) {
             dropdownName = "Passport Issuance Date";
         }
-        WebElement dropdown = driver
-                .findElement(By.xpath("//div[@class='card-header'][normalize-space(.)='" + traveller
-                        + "']/../div/div/div/div/div/label[text()='Passport Issuance Date']/../../div/label[text()='"
-                        + dropdownName + "']/../select"));
-        Select select = new Select(dropdown);
+        Select select = util.findSelectWithXpath("//div[@class='card-header'][normalize-space(.)='" + traveller
+                + "']/../div/div/div/div/div/label[text()='Passport Issuance Date']/../../div/label[text()='"
+                + dropdownName + "']/../select");
 
         select.selectByVisibleText(option);
     }
@@ -71,21 +65,17 @@ public class BookingPage {
         if (dropdownName.equals("Month")) {
             dropdownName = "Passport Expiry Date";
         }
-        WebElement dropdown = driver
-                .findElement(By.xpath("//div[@class='card-header'][normalize-space(.)='" + traveller
-                        + "']/../div/div/div/div/div/label[text()='Passport Expiry Date']/../../div/label[text()='"
-                        + dropdownName + "']/../select"));
-        Select select = new Select(dropdown);
+        Select select = util.findSelectWithXpath("//div[@class='card-header'][normalize-space(.)='" + traveller
+                + "']/../div/div/div/div/div/label[text()='Passport Expiry Date']/../../div/label[text()='"
+                + dropdownName + "']/../select");
 
         select.selectByVisibleText(option);
     }
 
     public void selectDropdownTravellerInformationTitleAndNationality(String traveller, String dropdownName,
             String option) {
-        WebElement dropdown = driver
-                .findElement(By.xpath("//div[@class='card-header'][normalize-space(.)='" + traveller
-                        + "']/../div/div/div/label[text()='" + dropdownName + "']/../select"));
-        Select select = new Select(dropdown);
+        Select select = util.findSelectWithXpath("//div[@class='card-header'][normalize-space(.)='" + traveller
+                + "']/../div/div/div/label[text()='" + dropdownName + "']/../select");
 
         select.selectByVisibleText(option);
     }

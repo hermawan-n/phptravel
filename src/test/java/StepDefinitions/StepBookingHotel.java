@@ -52,17 +52,6 @@ public class StepBookingHotel {
         bookingPage.selectDropdownPersonalInformationxpath(string, string2);
     }
 
-    // @Then("user fill travellers information on {string} select {string} as
-    // {string}")
-    // public void user_fill_travellers_information_on_select_as(String string,
-    // String string2, String string3) {
-    // System.out.println("Inside Step - user fill " + string + "info " + string2 +
-    // "as " + string3 + "");
-
-    // bookingPage.selectDropdownTravellerInformationTitleAndNationality(string2,
-    // string3);
-    // }
-
     @And("user fill travellers information on {string} select Age\\/Title {string} as {string}")
     public void user_fill_travellers_information_on_select_age_title_as(String string, String string2, String string3) {
         System.out.println("Inside Step - user select " + string + "as " + string2 + " " + string3 + "");

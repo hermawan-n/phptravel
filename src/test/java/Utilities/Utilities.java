@@ -23,4 +23,11 @@ public class Utilities {
 
         return select;
     }
+
+    public Select findSelectWithXpath(String xpath) {
+        WebElement dropdown = driver.findElement(By.xpath(xpath));
+        Select select = new Select(dropdown);
+
+        return select;
+    }
 }
