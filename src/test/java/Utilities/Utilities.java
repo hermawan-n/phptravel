@@ -20,7 +20,7 @@ public class Utilities {
     public Select findSelectwithName(String text) {
         WebElement dropdown = driver.findElement(By.name(text));
         Select select = new Select(dropdown);
-        
+
         return select;
     }
 }

@@ -26,7 +26,7 @@ public class StepBookingHotel {
     public void user_clicks_on(String string) {
         System.out.println("Inside Step - user choose " + string + " to book");
 
-        hotelPage.checkDisplay(string);
+        // hotelPage.checkDisplay(string);
         hotelPage.chooseHotel(string);
     }
 
@@ -37,18 +37,44 @@ public class StepBookingHotel {
         hotelPage.chooseRoom(string);
     }
 
-    @Then("user fill personal information for booking")
-    public void user_fill_personal_information_for_booking() {
-        System.out.println("Inside Step - user fill personal information");
+    @Then("user fill personal information textbox {string} as {string}")
+    public void user_fill_personal_information_textbox_as(String string, String string2) {
+        System.out.println("Inside Step - user fill " + string + "as " + string2 + "");
 
-        bookingPage.fillPersonalInformation();
+        bookingPage.fillPersonalInformationTextBox(string, string2);
     }
 
-    @And("fill travel information")
-    public void fill_travel_information() {
-        System.out.println("Inside Step - user fill travel information");
+    @Then("user fill personal information select {string} as {string}")
+    public void user_fill_personal_information_select_as(String string, String string2) {
+        System.out.println("Inside Step - user select " + string + "as " + string2 +
+                "");
 
-        bookingPage.fillTrevelInfo();
+        bookingPage.selectDropdownPersonalInformationxpath(string, string2);
+    }
+
+    // @Then("user fill travellers information on {string} select {string} as
+    // {string}")
+    // public void user_fill_travellers_information_on_select_as(String string,
+    // String string2, String string3) {
+    // System.out.println("Inside Step - user fill " + string + "info " + string2 +
+    // "as " + string3 + "");
+
+    // bookingPage.selectDropdownTravellerInformationTitleAndNationality(string2,
+    // string3);
+    // }
+
+    @And("user fill travellers information on {string} select Age\\/Title {string} as {string}")
+    public void user_fill_travellers_information_on_select_age_title_as(String string, String string2, String string3) {
+        System.out.println("Inside Step - user select " + string + "as " + string2 + " " + string3 + "");
+
+        bookingPage.selectDropdownTravellerInformationTitleAndNationality(string, string2, string3);
+    }
+
+    @Then("user fill travellers information on {string} textbox {string} as {string}")
+    public void user_fill_travellers_information_on_textbox_as(String string, String string2, String string3) {
+        System.out.println("Inside Step - user fill " + string + "info " + string2 + "as " + string3 + "");
+
+        bookingPage.fillTravellerInformationTextBox(string, string2, string3);
     }
 
     @Then("user choose payment method as {string}")

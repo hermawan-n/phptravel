@@ -27,9 +27,41 @@ public class StepBookingFlight {
         flightPage.chooseFlightID(string);
     }
 
-    @And("fill travel information for flight")
-    public void fill_travel_information_for_flight() {
-        bookingPage.fillTravelInformationFlight();
+    @And("user fill travellers information on {string} Age\\/Title {string} as {string}")
+    public void user_fill_travellers_information_on_age_title_as(String string, String string2, String string3) {
+        System.out.println("Inside Step - user select " + string + "as " + string2 + " " + string3 + "");
+
+        bookingPage.selectDropdownTravellerInformationTitleAndNationality(string, string2, string3);
+    }
+
+    @Then("user fill travellers information on {string} Nationality {string} as {string}")
+    public void user_fill_travellers_information_on_nationality_as(String string, String string2, String string3) {
+        System.out.println("Inside Step - user select " + string + "as " + string2 + " " + string3 + "");
+
+        bookingPage.selectDropdownTravellerInformationTitleAndNationality(string, string2, string3);
+    }
+
+    @Then("user fill travellers information on {string} Date of Birth {string} as {string}")
+    public void user_fill_travellers_information_on_date_of_birth_as(String string, String string2, String string3) {
+        System.out.println("Inside Step - user select DOB " + string + "as " + string2 + " " + string3 + "");
+
+        bookingPage.selectDropdownTravellerInformationDOB(string, string2, string3);
+    }
+
+    @Then("user fill travellers information on {string} Passport Issuance Date {string} as {string}")
+    public void user_fill_travellers_information_on_passport_issuance_date_as(String string, String string2,
+            String string3) {
+        System.out.println("Inside Step - user select PID " + string + "as " + string2 + " " + string3 + "");
+
+        bookingPage.selectDropdownTravellerInformationPID(string, string2, string3);
+    }
+
+    @Then("user fill travellers information on {string} Passport Expiry Date {string} as {string}")
+    public void user_fill_travellers_information_on_passport_expiry_date_as(String string, String string2,
+            String string3) {
+        System.out.println("Inside Step - user select PED " + string + "as " + string2 + " " + string3 + "");
+
+        bookingPage.selectDropdownTravellerInformationPED(string, string2, string3);
     }
 
 }

@@ -19,9 +19,12 @@ public class HotelPage {
 
     public void chooseHotel(String hotel) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement btn_cookies = driver.findElement(By.id("cookie_stop"));
+        btn_cookies.click();
         WebElement element = wait.until(ExpectedConditions
                 .presenceOfElementLocated(By.xpath("//strong[text()='" + hotel + "']/../../../../div[1]/a")));
         JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("window.scrollBy(0,500)");
         executor.executeScript("arguments[0].scrollIntoView(true);", element);
         element.click();
     }
